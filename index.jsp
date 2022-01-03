@@ -1,29 +1,54 @@
 
-<!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core
+"
+         prefix="c" %>
+<%@ taglib uri="/functions" prefix="f" %>
 <html>
-<head>
-<script type="text/javascript">
-function first(){
-var p=document.sample.pass.value;
-var p1=document.sample.pass1.value;
-if(p==p1){
-return true;
-}
-else{
-alert("password are not equal!");
-return false;
-}
-}
-</script>
-</head>
-<body>
+<head><title>Localized Dates</title></head>
+<body bgcolor="white">
+<jsp:useBean id="locales" scope="application"
+    class="mypkg.MyLocales"/>
 <h1>DevOps final project</h1> 
 <h2>by Diana Krakovich Mark Nurenberg and Amos Alfasi</h2>
-<form name="sample" action="custom.jsp" onsubmit="return first()">
-Password:<input type="password" name="pass"/><br/>
-Confirmation Password:<input type="password" name="pass1"/><br/>
-<input type="submit">
+
+<form name="localeForm" action="index.jsp" method="post">
+
+<c:set var="selectedLocaleString" value="${param.locale}" />
+<c:set var="selectedFlag"
+     value="${!empty selectedLocaleString}" />
+<b>Locale:</b>
+<select name=locale>
+<c:forEach var="localeString" items="${locales.localeNames}" >
+<c:choose>
+    <c:when test="${selectedFlag}">
+        <c:choose>
+            <c:when
+                 test="${f:equals(selectedLocaleString, localeString)}" >
+                <option selected>${localeString}</option>
+            </c:when>
+            <c:otherwise>
+                <option>${localeString}</option>
+            </c:otherwise>
+        </c:choose>
+    </c:when>
+    <c:otherwise>
+        <option>${localeString}</option>
+    </c:otherwise>
+</c:choose>
+</c:forEach>
+</select>
+<input type="submit" name="Submit" value="Get Date">
 </form>
+
 <a href="https://advantageonlineshopping.com/">Shopping example link</a>
+<c:if test="${selectedFlag}" >
+    <jsp:setProperty name="locales"
+        property="selectedLocaleString"
+        value="${selectedLocaleString}" />
+    <jsp:useBean id="date" class="mypkg.MyDate"/>
+    <jsp:setProperty name="date" property="locale"
+        value="${locales.selectedLocale}"/>
+    <b>Date: </b>${date.date}</c:if>
 </body>
 </html>
