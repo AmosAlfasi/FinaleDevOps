@@ -3,28 +3,34 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>HIT - devops students survey</title>
+  <h1>Diana | Mark | Amos</h1>
+  <h1>DevOps Project</h1>
 </head>
      
-<body style="background-color:#00BFFF;" align="center" width = "100%" border = "0" >
+<body style="background-color:#fff2cc;" align="center" width = "100%" border = "0" >
 	<table style="width:100%">
-		<tr >
-			<td><h1>HIT - devops students survey</h1></td>
-		</tr>
-		<tr >
+				<tr >
 			<td><h2>What degree are you studying</h2></td>
 		</tr>
+		<form method="get">
 		<tr>
 			<td>
-					<form method="get">
+					
 						<input type="radio" name="dgree" value="you thought you are going do code haa?">Computer science
 						<input type="radio" name="dgree" value="computerScience.concat(physics)">Computer engineering
 						<input type="radio" name="dgree" value="in the industry you are going to code anyway">Electric engineering
 						<input type="radio" name="dgree" value="4 dgrees to be a product manager">Industrial engineering
-						<input type="submit" value="Query">
-					</form>
+						
+					
 			</td>
 		</tr>
+		<tr>
+		<td>
+		<input style="margin-top:5%" type="submit" value="Query">
+		</td>
+		</tr>
+		</form>
+		
 		<tr>
 			<% 
 				String[] dgrees = request.getParameterValues("dgree");
@@ -36,11 +42,9 @@
 		</tr>
 		<tr>
 			<td>
-				<ul>
 					<%for (String dgree : dgrees) { %>
-					<li style="background-color:#0FFFFF; color:#FFFF; font-size:200%;font-family:verdana;"><%= dgree %></li>
+					<div style="color:#000000; font-size:200%;font-family:verdana;border:1px solid #000000;background-color:#fefecd"><%= dgree %></div>
 					<%}%>
-				</ul>
 				<%}%>
 			</td>
 		</tr>
