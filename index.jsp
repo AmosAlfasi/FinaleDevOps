@@ -18,7 +18,7 @@
 					
 						<input type="radio" name="dgree" value="you thought you are going do code haa?">Computer science
 						<input type="radio" name="dgree" value="computerScience.concat(physics)">Computer engineering
-						<input type="radio" name="dgree" value="in the industry you are going to code anyway">Electric engineering
+						<input type="radio" name="dgree" value="in The industry you are going to code anyway">Electric engineering
 						<input type="radio" name="dgree" value="4 dgrees to be a product manager">Industrial engineering
 						
 					
