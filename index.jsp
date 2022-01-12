@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <h1>Diana | Mark | Amosa</h1>
+  <h1>Diana | Mark | Amos</h1>
   <h1>DevOps Project</h1>
 </head>
      
